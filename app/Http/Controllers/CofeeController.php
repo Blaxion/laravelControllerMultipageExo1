@@ -60,6 +60,7 @@ class CofeeController extends Controller
     }
     public function store()
     {
+
         $closed='ClosedMaggle';
         $short='9:00 AM to 5:00 PM';
         $normal='7:00 AM to 8:00 PM';
@@ -78,6 +79,20 @@ class CofeeController extends Controller
             "ParaOne" => "Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.",
             "ParaTwo" => "We guarantee that you will fall in <em>lust</em> with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.",
         ];
-        return view("pages.store",compact('horaires','aboutSection'));
+        $data = (object)[
+            "SpanOne" => "Come On In",
+            "SpanTwo" => "We're Open",
+            "ParaOne" => "<em>
+            <strong>1116 Orchard Street</strong>
+            <br>
+            Golden Valley, Minnesota
+          </em>",
+            "ParaTwo" => '<small>
+            <em>Call Anytime</em>
+          </small><br>
+          (317) 585-8468'
+        ];
+        return view("pages.store",compact('horaires','aboutSection','data'));
     }
+
 }

@@ -25,43 +25,41 @@
 <body>
 
   <h1 class="site-heading text-center text-white d-none d-lg-block">
-    <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>
-    <span class="site-heading-lower">Business Casual</span>
+    <span class="site-heading-upper text-primary mb-3">{{env('APP_TITLEUP')}}</span>
+    <span class="site-heading-lower">{{env('APP_TITLEUP')}}</span>
   </h1>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/">Start Bootstrap</a>
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/">{{env('APP_SB')}}</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{{route("home")}}">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item px-lg-4 {{request()->is('/')?'active':''}} ">
+            <a class="nav-link text-uppercase text-expanded" href="{{route("home")}}">{{env('APP_HOME')}}</a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{{route("about")}}">About</a>
+          <li class="nav-item px-lg-4 {{request()->is('about')?'active':''}} ">
+            <a class="nav-link text-uppercase text-expanded" href="{{route("about")}}">{{env('APP_ABOUT')}}</a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{{route("products")}}">Products</a>
+          <li class="nav-item px-lg-4 {{request()->is('products')?'active':''}} ">
+            <a class="nav-link text-uppercase text-expanded" href="{{route("products")}}">{{env('APP_PRODUCTS')}}</a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{{route("store")}}">Store</a>
+          <li class="nav-item px-lg-4 {{request()->is('store')?'active':''}} ">
+            <a class="nav-link text-uppercase text-expanded" href="{{route("store")}}">{{env('APP_STORE')}}</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
- @yield('body')
+@yield('body')
 
   <footer class="footer text-faded text-center py-5">
     <div class="container">
-      <p class="m-0 small">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 small">{{env('APP_COPYRIGHT')}}</p>
     </div>
   </footer>
 
